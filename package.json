@@ -1,0 +1,32 @@
+{
+  "name": "nextface-ai-os-workspace-mvp-creator-djibril",
+  "version": "1.2.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "lucide-react": "latest",
+    "recharts": "latest",
+    "jspdf": "latest"
+  },
+  "devDependencies": {
+    "typescript": "latest",
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "tailwindcss": "latest",
+    "postcss": "latest",
+    "autoprefixer": "latest",
+    "eslint": "latest",
+    "eslint-config-next": "latest"
+  },
+  "author": "Djibril Julien Bourouno",
+  "description": "NextFace AI OS, created by Djibril Julien Bourouno. Independent AI workspace MVP with online research, citations, model journey, visual coaching, style advisor, and creator dashboard."
+}
