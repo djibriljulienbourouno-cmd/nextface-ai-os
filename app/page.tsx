@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import AIWorkspace from './components/AIWorkspace'
 import FunctionalTools from './components/FunctionalTools'
+import ImageAnalyzer from './components/ImageAnalyzer'
 
 const principles = [
   {
@@ -16,16 +17,16 @@ const principles = [
     text: 'The goal is to use online research, sources and citations for current agencies, fashion news, opportunities and industry updates.'
   },
   {
+    title: 'Image-aware',
+    text: 'Users can upload photos and receive practical feedback about pose, lighting, outfit, expression, portfolio value and agency-readiness.'
+  },
+  {
     title: 'Safe improvement',
     text: 'NextFace focuses on realistic, professional and safe improvement. It does not promise fake transformations or medical results.'
   },
   {
     title: 'Progress over time',
     text: 'Users should be able to return, update photos, track progress, improve their score and receive weekly guidance.'
-  },
-  {
-    title: 'Creator ownership',
-    text: 'This is an independent AI workspace created by Djibril Julien Bourouno for models, creators and ambitious beginners.'
   }
 ]
 
@@ -71,8 +72,8 @@ export default function HomePage() {
               NextFace AI OS is a real AI workspace built for models and
               creators. Ask anything like ChatGPT or Gemini, then switch into
               specialized modes for modelling, agency research, emails,
-              contracts, image improvement, casting preparation and 90-day
-              growth plans.
+              contracts, image analysis, casting preparation and 90-day growth
+              plans.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-4">
@@ -91,10 +92,10 @@ export default function HomePage() {
               </a>
 
               <a
-                href="#principles"
+                href="#image-analyzer"
                 className="rounded-2xl border border-white/15 px-6 py-4 font-bold text-white"
               >
-                Read principles
+                Analyze image
               </a>
             </div>
           </div>
@@ -125,10 +126,10 @@ export default function HomePage() {
               </div>
 
               <div className="rounded-2xl border border-white/10 bg-black/30 p-4">
-                <p className="font-bold text-white">Free limited access</p>
+                <p className="font-bold text-white">Image analysis</p>
                 <p className="mt-1 text-sm leading-6 text-white/60">
-                  Free users get limited chat access. Advanced tools will later
-                  unlock with payment.
+                  Upload a photo and get feedback on pose, lighting, outfit,
+                  expression and portfolio value.
                 </p>
               </div>
             </div>
@@ -178,7 +179,7 @@ export default function HomePage() {
         <p className="mt-5 max-w-3xl text-lg leading-8 text-white/60">
           Every module is designed to become functional inside the same AI
           workspace. Instead of sending users to empty locked pages, the system
-          gives them active AI modes that can guide, write, plan and analyze.
+          gives them active AI tools that can guide, write, plan and analyze.
         </p>
 
         <div className="mt-10 grid gap-3 md:grid-cols-3 lg:grid-cols-4">
@@ -237,6 +238,10 @@ export default function HomePage() {
         <FunctionalTools />
       </div>
 
+      <div id="image-analyzer">
+        <ImageAnalyzer />
+      </div>
+
       <section id="pricing" className="mx-auto max-w-7xl px-6 py-20">
         <p className="text-sm font-bold uppercase tracking-[0.3em] text-white/40">
           Access
@@ -248,8 +253,8 @@ export default function HomePage() {
 
         <p className="mt-5 max-w-3xl text-lg leading-8 text-white/60">
           The first goal is to make the AI workspace functional. Then we add
-          accounts, usage limits, image upload, online research with citations,
-          saved updates and payment unlock.
+          accounts, usage limits, saved progress updates, online research with
+          citations and payment unlock.
         </p>
 
         <div className="mt-10 grid gap-4 md:grid-cols-3">
