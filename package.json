@@ -16,7 +16,7 @@
     "react-dom": "18.2.0",
     "lucide-react": "latest",
     "recharts": "latest",
-    "jspdf": "latest"
+    "jspdf": "latest",
     "openai": "latest"
   },
   "devDependencies": {
