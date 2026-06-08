@@ -1,10 +1,11 @@
 import Link from 'next/link'
 import AIWorkspace from './components/AIWorkspace'
+import FunctionalTools from './components/FunctionalTools'
 
 const principles = [
   {
     title: 'AI-first',
-    text: 'NextFace AI OS is built around a real AI assistant, not only static pages. The user can ask questions, get plans, write emails, prepare agencies and improve step by step.'
+    text: 'NextFace AI OS is built around a real AI assistant, not only static pages. Users can ask questions, get plans, write emails, prepare agencies and improve step by step.'
   },
   {
     title: 'Model-focused',
@@ -83,6 +84,13 @@ export default function HomePage() {
               </a>
 
               <a
+                href="#functional-tools"
+                className="rounded-2xl border border-white/15 px-6 py-4 font-bold text-white"
+              >
+                Open real tools
+              </a>
+
+              <a
                 href="#principles"
                 className="rounded-2xl border border-white/15 px-6 py-4 font-bold text-white"
               >
@@ -109,10 +117,10 @@ export default function HomePage() {
               </div>
 
               <div className="rounded-2xl border border-white/10 bg-black/30 p-4">
-                <p className="font-bold text-white">Specialized modelling modes</p>
+                <p className="font-bold text-white">Real AI functions</p>
                 <p className="mt-1 text-sm leading-6 text-white/60">
-                  Model coach, agency finder, email writer, image analyzer,
-                  contract helper and 90-day program.
+                  Generate agency emails, 90-day plans, portfolio structures,
+                  casting simulations, contract checks and style advice.
                 </p>
               </div>
 
@@ -225,6 +233,10 @@ export default function HomePage() {
         <AIWorkspace />
       </div>
 
+      <div id="functional-tools">
+        <FunctionalTools />
+      </div>
+
       <section id="pricing" className="mx-auto max-w-7xl px-6 py-20">
         <p className="text-sm font-bold uppercase tracking-[0.3em] text-white/40">
           Access
@@ -263,10 +275,10 @@ export default function HomePage() {
             </p>
             <p className="mt-6 text-4xl font-black">Coming</p>
             <a
-              href="#ai-workspace"
+              href="#functional-tools"
               className="mt-6 inline-block rounded-2xl bg-white px-5 py-3 font-bold text-black"
             >
-              Use AI modes
+              Use real tools
             </a>
           </div>
 
