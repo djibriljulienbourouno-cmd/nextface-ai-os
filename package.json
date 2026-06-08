@@ -2,6 +2,8 @@
   "name": "nextface-ai-os-workspace-mvp-creator-djibril",
   "version": "1.2.0",
   "private": true,
+  "author": "Djibril Julien Bourouno",
+  "description": "NextFace AI OS, created by Djibril Julien Bourouno. Independent AI workspace MVP with online research, citations, model journey, visual coaching, style advisor, and creator dashboard.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -9,27 +11,22 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "latest",
-    "react": "latest",
-    "react-dom": "latest",
+    "next": "14.2.23",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
     "lucide-react": "latest",
     "recharts": "latest",
     "jspdf": "latest"
   },
-  "
-    "devDependencies": {
-  "typescript": "latest",
-  "@types/node": "latest",
-  "@types/react": "latest",
-  "@types/react-dom": "latest",
-  "tailwindcss": "3.4.17",
-  "postcss": "8.4.49",
-  "autoprefixer": "10.4.20",
-  "eslint": "latest",
-  "eslint-config-next": "latest"
-}
-    "
+  "devDependencies": {
+    "typescript": "latest",
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "tailwindcss": "3.4.17",
+    "postcss": "8.4.49",
+    "autoprefixer": "10.4.20",
+    "eslint": "latest",
+    "eslint-config-next": "14.2.23"
   }
-  "author": "Djibril Julien Bourouno",
-  "description": "NextFace AI OS, created by Djibril Julien Bourouno. Independent AI workspace MVP with online research, citations, model journey, visual coaching, style advisor, and creator dashboard."
 }
