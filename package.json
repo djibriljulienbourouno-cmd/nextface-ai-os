@@ -17,6 +17,7 @@
     "lucide-react": "latest",
     "recharts": "latest",
     "jspdf": "latest"
+    "openai": "latest"
   },
   "devDependencies": {
     "typescript": "latest",
