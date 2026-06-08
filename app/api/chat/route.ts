@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
 import OpenAI from 'openai'
 
+export const runtime = 'nodejs'
+
 const client = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY
 })
@@ -11,7 +13,10 @@ export async function POST(req: NextRequest) {
     const message = String(body?.message || '')
 
     if (!message.trim()) {
-      return NextResponse.json({ error: 'Message is required' }, { status: 400 })
+      return NextResponse.json(
+        { error: 'Message is required' },
+        { status: 400 }
+      )
     }
 
     if (!process.env.OPENAI_API_KEY) {
@@ -21,27 +26,32 @@ export async function POST(req: NextRequest) {
       )
     }
 
-    const response = await client.responses.create({
-      model: 'gpt-4.1-mini',
-      input: [
+    const response = await client.chat.completions.create({
+      model: 'gpt-4o-mini',
+      messages: [
         {
           role: 'system',
           content:
-            'You are NextFace AI OS, an ethical AI assistant for models and creators. Give practical, safe, professional advice. For skincare or health topics, say it is not medical advice and recommend a professional for persistent issues. If current facts are needed, tell the user that live research should be used.'
+            'You are NextFace AI OS, an ethical AI assistant for models and creators. Give practical, safe, professional advice. Help with modeling, portfolio, casting preparation, style, grooming, confidence, and career decisions. For skincare, health, or medical topics, clearly say it is not medical advice and recommend a dermatologist or qualified professional for persistent issues. Do not promise guaranteed results.'
         },
         {
           role: 'user',
           content: message
         }
-      ]
+      ],
+      temperature: 0.7
     })
 
-    return NextResponse.json({
-      answer: response.output_text || 'No answer generated.'
-    })
-  } catch (error: any) {
+    const answer =
+      response.choices?.[0]?.message?.content || 'No answer generated.'
+
+    return NextResponse.json({ answer })
+  } catch (error: unknown) {
+    const message =
+      error instanceof Error ? error.message : 'Chat route failed'
+
     return NextResponse.json(
-      { error: error?.message || 'Chat route failed' },
+      { error: message },
       { status: 500 }
     )
   }
