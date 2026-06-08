@@ -1,233 +1,119 @@
 import Link from 'next/link'
+import AIWorkspace from '../../components/AIWorkspace'
+import FunctionalTools from '../../components/FunctionalTools'
+import ImageAnalyzer from '../../components/ImageAnalyzer'
 
-const features: Record<string, {
+const featureInfo: Record<string, {
   title: string
-  status: string
-  plan: string
   description: string
-  items: string[]
+  type: 'chat' | 'tools' | 'image'
 }> = {
   'ai-chat': {
     title: 'AI Chat',
-    status: 'Free limited access',
-    plan: 'Free',
-    description: 'Talk with NextFace AI OS for modelling, style, confidence, portfolio and creator strategy advice.',
-    items: [
-      'Ask modelling questions',
-      'Get grooming and style guidance',
-      'Receive career direction',
-      'Limited free usage before upgrade'
-    ]
+    description: 'Ask anything like ChatGPT or Gemini, with NextFace modelling intelligence.',
+    type: 'chat'
   },
   'model-journey': {
     title: '90-Day Model Journey',
-    status: 'Locked',
-    plan: 'Pro',
-    description: 'A structured 90-day program to improve your model profile, confidence, routine and casting preparation.',
-    items: [
-      'Weekly goals',
-      'Daily discipline tracker',
-      'Progress checkpoints',
-      'Personal improvement roadmap'
-    ]
+    description: 'Build a real 90-day model improvement program with Natural Appeal or Masculine Edge.',
+    type: 'tools'
   },
   'deep-research': {
     title: 'Deep Research',
-    status: 'Locked',
-    plan: 'Pro',
-    description: 'Research agencies, castings, trends, brands and opportunities with structured reports.',
-    items: [
-      'Agency research',
-      'Casting opportunity analysis',
-      'Brand positioning',
-      'Source-based research reports'
-    ]
+    description: 'Use NextFace AI to prepare research, agency strategy, trends and action plans.',
+    type: 'tools'
   },
   'visual-coach': {
     title: 'Visual AI Coach',
-    status: 'Locked',
-    plan: 'Pro',
-    description: 'Analyze photos, posing, skin quality, outfit balance and portfolio direction.',
-    items: [
-      'Photo feedback',
-      'Pose suggestions',
-      'Portfolio improvement',
-      'Visual presentation coaching'
-    ]
+    description: 'Upload photos and get practical visual feedback for modelling and portfolio improvement.',
+    type: 'image'
   },
   'style-advisor': {
     title: 'Style Advisor',
-    status: 'Locked',
-    plan: 'Starter / Pro',
-    description: 'Get outfit, grooming, skin quality and model image advice based on your goals.',
-    items: [
-      'Outfit direction',
-      'Skin quality tips',
-      'Hair and grooming advice',
-      'Model image improvement'
-    ]
+    description: 'Generate real style, grooming, outfit and model image advice.',
+    type: 'tools'
   },
   'agency-match': {
     title: 'Agency Match',
-    status: 'Locked',
-    plan: 'Pro',
-    description: 'Find agencies that fit your profile, height, look, location and modelling goals.',
-    items: [
-      'Agency matching',
-      'Profile positioning',
-      'Submission preparation',
-      'Casting readiness'
-    ]
+    description: 'Use the agency finder to match a profile with the right type of agencies.',
+    type: 'tools'
   },
   'casting-simulation': {
     title: 'Casting Simulation',
-    status: 'Locked',
-    plan: 'Pro',
-    description: 'Practice casting questions, runway confidence, introduction and professional communication.',
-    items: [
-      'Casting questions',
-      'Self-introduction practice',
-      'Confidence training',
-      'Professional response coaching'
-    ]
+    description: 'Practice casting questions, self-introduction and professional answers.',
+    type: 'tools'
   },
   'pdf-reports': {
     title: 'PDF Reports',
-    status: 'Locked',
-    plan: 'Pro',
-    description: 'Generate professional reports for your progress, modelling plan and portfolio improvement.',
-    items: [
-      'Monthly reports',
-      'Portfolio report',
-      'Improvement checklist',
-      'Downloadable PDF summary'
-    ]
+    description: 'Prepare structured AI reports and portfolio summaries. PDF download comes later.',
+    type: 'tools'
   },
   'portfolio-builder': {
     title: 'Portfolio Builder',
-    status: 'Locked',
-    plan: 'Premium',
-    description: 'Build a clean model portfolio structure with photos, measurements, bio and contact details.',
-    items: [
-      'Model bio',
-      'Photo categories',
-      'Measurements section',
-      'Agency-ready structure'
-    ]
+    description: 'Build a model portfolio structure, bio, photo order and agency checklist.',
+    type: 'tools'
   },
   'media-kit': {
     title: 'Media Kit Generator',
-    status: 'Locked',
-    plan: 'Premium',
-    description: 'Create a professional media kit for creator deals, modelling opportunities and brand outreach.',
-    items: [
-      'Creator profile',
-      'Stats section',
-      'Brand pitch',
-      'Professional presentation'
-    ]
+    description: 'Create creator profile text, brand pitch, and media kit structure.',
+    type: 'tools'
   },
   'ai-app-builder': {
     title: 'AI App Builder',
-    status: 'Locked',
-    plan: 'Premium',
-    description: 'Plan and structure AI app ideas with branding, features, pricing and launch strategy.',
-    items: [
-      'App idea builder',
-      'Feature planning',
-      'Pricing strategy',
-      'Launch roadmap'
-    ]
+    description: 'Plan AI app ideas, features, pricing, branding and launch roadmap.',
+    type: 'tools'
   }
 }
 
 export default function FeaturePage({ params }: { params: { slug: string } }) {
-  const feature = features[params.slug] || {
-    title: 'Feature',
-    status: 'Coming soon',
-    plan: 'Locked',
-    description: 'This feature page is being prepared inside NextFace AI OS.',
-    items: [
-      'Feature page created',
-      'Access system ready',
-      'Payment lock coming soon',
-      'Full function coming soon'
-    ]
+  const feature = featureInfo[params.slug] || {
+    title: 'NextFace AI Tool',
+    description: 'Use a real NextFace AI function below.',
+    type: 'tools' as const
   }
 
-  const isFree = feature.plan === 'Free'
-
   return (
-    <main className="min-h-screen bg-black px-6 py-10 text-white">
-      <div className="mx-auto max-w-4xl">
-        <Link href="/" className="text-sm text-white/60 hover:text-white">
+    <main className="min-h-screen bg-black text-white">
+      <section className="mx-auto max-w-7xl px-6 py-12">
+        <Link href="/" className="text-sm text-white/50 hover:text-white">
           ← Back to NextFace AI OS
         </Link>
 
-        <section className="mt-10 rounded-3xl border border-white/10 bg-white/5 p-6 shadow-2xl">
-          <div className="flex flex-wrap items-center gap-3">
-            <span className="rounded-full bg-white px-3 py-1 text-xs font-bold text-black">
-              {feature.status}
+        <div className="mt-10 rounded-[2rem] border border-white/10 bg-white/5 p-6 md:p-10">
+          <div className="mb-4 flex flex-wrap gap-3">
+            <span className="rounded-full bg-white px-4 py-2 text-xs font-bold text-black">
+              Functional page
             </span>
-            <span className="rounded-full border border-white/15 px-3 py-1 text-xs text-white/70">
-              Plan: {feature.plan}
+            <span className="rounded-full border border-white/10 px-4 py-2 text-xs text-white/60">
+              NextFace AI OS
             </span>
           </div>
 
-          <h1 className="mt-6 text-4xl font-black tracking-tight md:text-6xl">
+          <h1 className="max-w-5xl text-5xl font-black leading-none tracking-tight md:text-7xl">
             {feature.title}
           </h1>
 
-          <p className="mt-4 max-w-2xl text-lg leading-8 text-white/70">
+          <p className="mt-6 max-w-3xl text-lg leading-8 text-white/60">
             {feature.description}
           </p>
 
-          <div className="mt-8 grid gap-4 md:grid-cols-2">
-            {feature.items.map((item) => (
-              <div
-                key={item}
-                className="rounded-2xl border border-white/10 bg-black/30 p-4 text-white/80"
-              >
-                {item}
-              </div>
-            ))}
-          </div>
+          <p className="mt-4 max-w-3xl text-sm leading-7 text-white/40">
+            This page is connected to a real AI action. It is not only a locked
+            preview. If the AI returns a quota error, the function exists but
+            the OpenAI API billing/quota must be fixed.
+          </p>
+        </div>
+      </section>
 
-          <div className="mt-8 rounded-2xl border border-white/10 bg-black/40 p-5">
-            {isFree ? (
-              <>
-                <h2 className="text-xl font-bold">Free access enabled</h2>
-                <p className="mt-2 text-sm leading-6 text-white/60">
-                  This feature is available in the free version with usage limits. The next step is connecting the real usage counter.
-                </p>
-                <Link
-                  href="/"
-                  className="mt-4 inline-block rounded-2xl bg-white px-5 py-3 font-bold text-black"
-                >
-                  Start using it
-                </Link>
-              </>
-            ) : (
-              <>
-                <h2 className="text-xl font-bold">Upgrade required</h2>
-                <p className="mt-2 text-sm leading-6 text-white/60">
-                  This feature is prepared, but it will be unlocked only after payment once Stripe is connected.
-                </p>
-                <Link
-                  href="/#pricing"
-                  className="mt-4 inline-block rounded-2xl bg-white px-5 py-3 font-bold text-black"
-                >
-                  View pricing
-                </Link>
-              </>
-            )}
-          </div>
-        </section>
+      {feature.type === 'chat' && <AIWorkspace />}
 
-        <p className="mt-8 text-center text-xs text-white/40">
-          Created by Djibril Julien Bourouno · NextFace AI OS
-        </p>
-      </div>
+      {feature.type === 'image' && <ImageAnalyzer />}
+
+      {feature.type === 'tools' && <FunctionalTools />}
+
+      <footer className="border-t border-white/10 px-6 py-8 text-center text-xs leading-6 text-white/40">
+        Created by Djibril Julien Bourouno · NextFace AI OS · @djibriljulienbouroun
+      </footer>
     </main>
   )
 }
